@@ -21,6 +21,6 @@ jobs:
         uses: actions/checkout@v4
       - name: Lint Html files
       #using npx we can use htmlhint tool without installing it into locl repo
-        run: npx htmlhint "*/.html"
+        run: npx htmlhint "**/*.html"
       - name: Lint css files
-        run: npx stylelint "*/.css*"
+        run: npx stylelint "**/*.css*"
