@@ -1,0 +1,26 @@
+name: ci-wf
+on:
+  pull_request:
+    branches:
+     - develop
+    types:
+     - opened 
+     - synchronize
+  push:
+    branches:
+      - develop
+jobs:
+  linting-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: welcome steps
+      #when we want to use shell command we write run
+        run: echo "welcome to Ci pipeline for this repo"
+      - name: Checkout Repository
+      #when we want to use action we write uses
+        uses: actions/checkout@v4
+      - name: Lint Html files
+      #using npx we can use htmlhint tool without installing it into locl repo
+        run: npx htmlhint "**/*.html"
+      - name: Lint css files
+        run: npx stylelint "**/*.css*"
